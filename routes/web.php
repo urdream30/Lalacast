@@ -10,15 +10,11 @@ use Illuminate\Support\Facades\Cache;
 
 Route::get('/', function () {
 
-    // \Illuminate\Support\Facades\DB::listen(function ($query) {
-    //     logger($query->sql, $query->bindings);
-    // });
-
     return view('posts', [
         'posts' => Post::latest()->get(),
         'categories' => Category::all()
     ]);
-});
+})->name('home');
     
 
 Route::get('posts/{post:slug}', function (Post $post) {
@@ -35,7 +31,7 @@ Route::get('categories/{category:slug}', function(Category $category) {
         'currentCategory' => $category,
         'categories' => Category::all()
     ]);
-});
+})->name('category');
 
 Route::get('authors/{author:username}', function(User $author) {
     return view('posts', [
