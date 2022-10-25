@@ -6,7 +6,7 @@
 
     // {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-500 text-white' : '' }}
 
-    if ($active) $classes .= 'bg-blue-500 text-white';
+    if ($active) $classes .= ' bg-blue-500 text-white';
 
 @endphp
 
